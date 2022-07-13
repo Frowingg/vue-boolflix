@@ -1,9 +1,9 @@
 <template>
   <div class="app">
     <HeaderComponent @performeSearch="search" />
-
     <MainComponent 
     :movieCards="movies"
+    :serieCards="series"
     :searching="searchStarted"
     />
 
@@ -24,7 +24,8 @@ export default {
   },
   data() {
     return {
-      apiUrl: 'https://api.themoviedb.org/3/search/movie?api_key=9702a6631dc530207a004d510a940372&language=en-US&page=1&include_adult=false',
+      apiUrlFilm:  'https://api.themoviedb.org/3/search/movie?api_key=9702a6631dc530207a004d510a940372&language=en-US&page=1&include_adult=false',
+      apiUrlSerie: 'https://api.themoviedb.org/3/search/tv?api_key=9702a6631dc530207a004d510a940372&language=en-US&page=1&include_adult=false',
       movies: [],
       series: [],
       allResults: [],
@@ -34,10 +35,22 @@ export default {
   methods: {
     getMovies(apiParams) {
       axios
-          .get(this.apiUrl + 'movies', apiParams)
+          .get(this.apiUrlFilm + 'movies', apiParams)
           .then((response) => {
             this.movies = response.data.results;
             this.allResults = [...this.movies];
+            this.searchStarted = true;
+          })
+          .catch((error) => {
+            console.log('error', error);
+          });
+    },
+    getSeries(apiParams) {
+      axios
+          .get(this.apiUrlSerie + 'series', apiParams)
+          .then((response) => {
+            this.series = response.data.results;
+            this.allResults = [...this.series];
             this.searchStarted = true;
           })
           .catch((error) => {
@@ -53,6 +66,7 @@ export default {
         }
       };
       this.getMovies(paramsObj);
+      this.getSeries(paramsObj);
     
     }
   } 
@@ -66,5 +80,3 @@ export default {
   box-sizing: border-box;
 }
 </style>
-
-

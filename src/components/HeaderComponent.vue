@@ -1,12 +1,12 @@
 <template>
     <header>
         <h1>Boolflix</h1>
-
         <div>
             <input 
             v-model="inputText"
             type="text"
             placeholder="Cerca il film"
+            @keyup="$emit('performeSearch', inputText)"
             >
             <button @click="$emit('performeSearch', inputText)">
                 Cerca!
@@ -29,6 +29,7 @@ export default {
 </script>
 
 <style>
+
 header{
     height: 60px;
     background-color: black;

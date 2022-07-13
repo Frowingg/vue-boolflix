@@ -3,10 +3,16 @@
     <section v-if="movieCards.length">
 
         <ul>
-            <CardComponent class="card"
-            v-for="card in movieCards"
-            :key="card.id"
-            :item="card"
+            <CardComponentMovie class="card"
+            v-for="cardMovie in movieCards"
+            :key="cardMovie.id"
+            :item="cardMovie"
+            />
+            
+            <CardComponentSerie class="card"
+            v-for="cardSerie in serieCards"
+            :key="cardSerie.id"
+            :item="cardSerie"
             />
         </ul>
 
@@ -15,16 +21,20 @@
 </template>
 
 <script>
-import CardComponent from './CardComponent.vue';
+import CardComponentMovie from './CardComponentMovie.vue';
+import CardComponentSerie from './CardComponentSerie.vue';
+
 
 export default {
     name: 'MainComponent',
     props: {
         'movieCards': Array,
+        'serieCards': Array,
         'searching': Boolean
     },
     components: {
-        CardComponent
+        CardComponentMovie,
+        CardComponentSerie
     }
 }
 </script>
@@ -45,5 +55,6 @@ ul{
     border: 1px solid white;
     margin: 30px;
     max-width: 250px;
+    padding: 10px;
 }
 </style>
