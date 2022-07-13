@@ -6,6 +6,13 @@
             <div>Titolo originale: {{item.original_name}}</div>
             <div>Lingua: <flag :iso=item.original_language /></div>
             <div>Voto: {{changeVote}}</div>
+            <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
         </li>
     </div>
 </template>

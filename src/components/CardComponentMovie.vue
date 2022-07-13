@@ -5,6 +5,14 @@
         <div>Titolo originale: {{item.original_title}}</div>
         <div>Lingua: <flag :iso=item.original_language /> </div>
         <div>Voto:{{changeVote}}</div>
+        <div class="stars">
+            <span v-for="i in changeVote" :key="i">
+                <i  class="fa-solid fa-star"></i>
+            </span>
+            <span v-for="i in 5-changeVote" :key="i">
+                <i  class="fa-regular fa-star"></i>
+            </span>  
+        </div>
     </li>
 </template>
 
@@ -22,7 +30,7 @@ export default {
                 return Math.ceil(this.item.vote_average)-5
             }
         }
-    }
+    },
 }
 </script>
 
