@@ -22,7 +22,7 @@ export default {
     name: 'HeaderComponent',
     data: function() {
         return {
-            inputText: ''
+            inputText: 'lol'
     }
     }
 }
