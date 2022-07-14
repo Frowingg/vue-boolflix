@@ -22,7 +22,7 @@ export default {
     name: 'HeaderComponent',
     data: function() {
         return {
-            inputText: 'lol'
+            inputText: 'ciao'
     }
     }
 }
@@ -41,4 +41,14 @@ header{
 h1{
     color: red;
 }
+input, button{
+    background-color: #434343;
+    border: 1px solid red;
+    padding: 5px 10px; 
+    border-radius: 25px;
+    color: white;
+}
+input:focus{
+    border:1px solid red;
+} 
 </style>

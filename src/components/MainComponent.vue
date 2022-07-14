@@ -1,22 +1,26 @@
 <template>
   <main>
-    <section v-if="movieCards.length">
+    <h2>Film</h2>
+    <section class="items" v-if="movieCards.length">
 
-        <ul>
-            <CardComponentMovie class="card"
-            v-for="cardMovie in movieCards"
-            :key="cardMovie.id"
-            :item="cardMovie"
-            />
-            
-            <CardComponentSerie class="card"
-            v-for="cardSerie in serieCards"
-            :key="cardSerie.id"
-            :item="cardSerie"
-            />
-        </ul>
+        <CardComponentMovie class="card"
+        v-for="cardMovie in movieCards"
+        :key="cardMovie.id"
+        :item="cardMovie"
+        />
 
-    </section>
+    </section>  
+
+    <h2>Serie TV</h2>
+    <section class="items" v-if="serieCards.length">   
+
+        <CardComponentSerie class="card"
+        v-for="cardSerie in serieCards"
+        :key="cardSerie.id"
+        :item="cardSerie"
+        />
+
+    </section>     
   </main>
 </template>
 
@@ -39,22 +43,32 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 main{
     height: calc(100vh - 60px);
     background-color: #434343;
-    padding: 50px;
     overflow-y: scroll;
+    padding: 0 30px;
+}
+h2{
+    margin: 5px 0;
+    color: white;
 }
 ul{
     list-style-type: none;
-    display: flex;
-    flex-wrap: wrap;
+}
+.items{
+    margin: 0 auto;
+    height: calc(50% - 40px);
+    width: 99%;
+    overflow: auto;
+    display:flex;
 }
 .card{
-    border: 1px solid white;
-    margin: 30px;
-    max-width: 250px;
-    padding: 10px;
+    width: 140px;
+    height: 95%;
+    background-color: black;
+    margin-right: 10px;
 }
+
 </style>
