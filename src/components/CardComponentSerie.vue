@@ -2,7 +2,7 @@
     <div class="card">
         <div v-show="hover === false" class="poster">
             <img @mouseenter="invertHover()" v-if="item.poster_path !== null" :src="'https://image.tmdb.org/t/p/w342/'+item.poster_path" alt='img'>
-            <img @mouseenter="invertHover()" id="unav" v-else src="https://nelowvision.com/wp-content/uploads/2018/11/Picture-Unavailable.jpg" alt="img">
+            <img @mouseenter="invertHover()" id="unav" v-else src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.XNvuzJaugn7Pn_pJopV2RQAAAA%26pid%3DApi&f=1.jpg" alt="img">
         </div>
         <div @mouseleave="invertHover()" v-show="hover === true" class="txts">
             <div class=txt>Titolo: {{item.name}}</div>
@@ -48,9 +48,11 @@ export default {
 <style lang="scss" scoped>
 img{
     height: 100%;
+    max-width: 187px;
 }
 .card{
     color: white;
+    min-width: 186px;
     .txt{
         margin: 5px 0;
     }
@@ -70,6 +72,7 @@ img{
         height: 100%;
         border: 1px solid white;
         padding: 10px;
+        min-width: 186px;
     }
 
 }
